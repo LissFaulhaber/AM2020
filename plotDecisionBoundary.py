@@ -24,7 +24,7 @@ def plotDecision (data, X, theta, filename):
     ax.axis([-1, 1.5, -0.8, 1.2])
     ax.scatter(positivo['Teste 1'], positivo['Teste 2'], s=50, c='k', marker='+', label='y=1')
     ax.scatter(negativo['Teste 1'], negativo['Teste 2'], s=50, c='y', marker='o', label='y=0')
-    ax.contour(xx1, xx2, h, 10, linewidths=1, colors='g')
+    ax.contour(xx1, xx2, h, 1, linewidths=1, colors='g')
     ax.legend()
     ax.set_xlabel('Microchip Test 1')
     ax.set_ylabel('Microchip Test 2')
