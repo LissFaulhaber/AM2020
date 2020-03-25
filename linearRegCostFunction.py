@@ -1,6 +1,6 @@
 import numpy as np
 
-def RegCost (lamb, X, y, theta):
+def RegCost (theta, X, y, lamb):
     
     
     #tamanho do conjunto de treinamento
@@ -14,7 +14,7 @@ def RegCost (lamb, X, y, theta):
     
     return J
 
-def gdReg(lamb, X, y, theta):
+def gdReg(theta, X, y, lamb):
     m = len(y)
     
     #calcula o valor da hipótese para a combinação de x e theta
@@ -27,3 +27,15 @@ def gdReg(lamb, X, y, theta):
     gradient = ((X.T.dot(loss)) + reg)/ m
 
     return gradient
+
+def minimize (theta, X, y, lamb):
+    epochs = 5000
+    alpha = 0.001
+    cost = np.zeros(epochs)
+    
+    for i in range(epochs):
+        gradient = gdReg(theta, X, y, lamb)
+        theta = theta - (alpha*gradient)
+        cost[i] = RegCost(theta, X, y, lamb=lamb)
+    
+    return cost[-1], theta
